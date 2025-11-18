@@ -1,5 +1,5 @@
 environment:
-  secure_file_version: 1.0.1
+  secure_file_version: 1.0.2
 
 # Do not build feature branch with open Pull Requests
 skip_branch_with_pr: true
@@ -31,5 +31,5 @@ deploy:
   tag: $(secure_file_version)
   release: Secure File $(secure_file_version)
   auth_token:
-    secure: avf7rJ4eX9x4b5bE/CX/nL6rQgUnNhSGTxxqMt+KyPU3yeOhHIE8q8NtmO10YOae
+    secure: tC2JqsY1pLk4twj5vIFPVOAFdpKcc8CWtPll/qJPHpju/vKzpS1qkcRKmSPLqgxlkO+CtZVPy2OfA03Nd1hglDC8zQ+59I02RF6GsOkRCsUZJAox2aKWb5j62p53p692
   force_update: true

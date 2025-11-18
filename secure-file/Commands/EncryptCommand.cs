@@ -37,15 +37,16 @@ namespace AppVeyor.Tools.SecureFile.Commands
                 throw new ArgumentNullException(nameof(context));
             }
 
-            using (var rng = new RNGCryptoServiceProvider())
+            var bytes = new byte[DefaultSaltLength];
+
+            using (var rng = RandomNumberGenerator.Create())
             {
-                var bytes = new byte[DefaultSaltLength];
                 rng.GetNonZeroBytes(bytes);
-
-                context.Salt = Convert.ToBase64String(bytes);
-
-                return bytes;
             }
+
+            context.Salt = Convert.ToBase64String(bytes);
+
+            return bytes;
         }
     }
 }
