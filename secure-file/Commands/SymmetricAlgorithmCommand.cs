@@ -85,12 +85,14 @@ namespace AppVeyor.Tools.SecureFile.Commands
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (context.RequireFipsCompliance)
+            var algorithm = Aes.Create();
+
+            if (algorithm == null)
             {
-                return Aes.Create();
+                throw new InvalidOperationException("Unable to create AES algorithm.");
             }
 
-            return Rijndael.Create();
+            return algorithm;
         }
 
         protected abstract byte[] GetSaltBytes(ApplicationContext context);
